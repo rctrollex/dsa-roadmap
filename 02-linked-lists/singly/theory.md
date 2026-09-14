@@ -108,3 +108,29 @@ Here is an explanation of every method in your Python code, detailing what it do
        * Set `itr.next` to point to the new Node.
        * Break the loop.
      * Move `itr` to the next node and increment `count`.
+
+### 9. `insert_after_value(self, data_after, data_to_insert)`
+* **What it does:** Searches for a specific value in the list and inserts a new node immediately after the first occurrence of that value.
+* **How it works:** It traverses the list sequentially. When it encounters a node whose data matches `data_after`, it creates a new node pointing to the current node's `next`, updates the current node to point to the new node, and breaks the loop.
+* **Algorithm:**
+  1. Set `itr` to `head`.
+  2. While `itr` is not `None`:
+     * If `itr.data == data_after`:
+       * Create a new Node with `data_to_insert` and its `next` pointing to `itr.next`.
+       * Set `itr.next` to point to the new Node.
+       * Break the loop.
+     * Move `itr` to the next node (`itr = itr.next`).
+
+### 10. `remove_by_value(self, data)`
+* **What it does:** Searches for a specific value and deletes the first node that contains it.
+* **How it works:** It handles edge cases for an empty list and if the target is located at the head. For the rest of the list, it uses two pointers: `itr` (current node) and `prev` (previous node). When the target is found, it bypasses `itr` by linking `prev.next` directly to `itr.next`.
+* **Algorithm:**
+  1. If `head` is `None`, return.
+  2. If `head.data == data`, set `head` to `head.next` and return.
+  3. Initialize `itr = head` and `prev = None`.
+  4. While `itr` is not `None`:
+     * If `itr.data == data`:
+       * Set `prev.next = itr.next` (bypassing the current node).
+       * Break the loop.
+     * Update `prev = itr`.
+     * Move `itr` to the next node (`itr = itr.next`).
