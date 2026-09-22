@@ -74,4 +74,26 @@ def containsDuplicate(nums):
 ### Current Status
 **Result:** Logically correct, but inefficient. 
 **Time Complexity:** $O(n^2)$ because of the two nested loops. For very large arrays, this will result in a "Time Limit Exceeded" error.
-It reached time complexity after 65 tries on leetcode
+It reached time complexity after 65 tries on leetcode 
+
+---
+### Finaly After Days Trying I found The Solution
+```python
+def containsDuplicates(nums):
+    if len(nums)==0:
+        return False
+    
+    numbers = set()
+    
+    for num in nums:
+        if num in numbers:
+            return True
+        
+        numbers.add(num)
+    return False
+```
+
+### Final Status
+**Result:** Accepted
+**Time Complexity:** $O(n)$
+**Space Complexity:** $O(n)$
